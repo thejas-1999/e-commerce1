@@ -17,17 +17,16 @@ const userSchema = new Mongoose.Schema(
       required: true,
     },
     about: {
-        type: String,
-        required: true,
-      },
-      role:{
-        type:Number,
-        default:0
-      },
-      history:{
-        type:Array,
-        default:[]
-      }
+      type: String,
+    },
+    role: {
+      type: Number,
+      default: 0,
+    },
+    history: {
+      type: Array,
+      default: [],
+    },
   },
   {
     timestamps: true,
