@@ -1,22 +1,24 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import userRoutes from './routes/user.routes.js'
 
 // Load environment variables
 dotenv.config();
 
+
 const app = express();
 const port = process.env.PORT || 8000;
 const MONGOURL = process.env.MONGO_URL;
+
+app.use(express.json());
 
 if (!MONGOURL) {
   console.error("MONGO_URL is not defined in the .env file");
   process.exit(1);
 }
 
-app.get("/", (req, res) => {
-  res.send("Hello World updated!");
-});
+app.get("/api", userRoutes);
 
 // Connect to MongoDB
 mongoose
