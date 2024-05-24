@@ -1,11 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import userRoutes from './routes/user.routes.js'
+import userRoutes from "./routes/user.routes.js";
 
 // Load environment variables
 dotenv.config();
-
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -18,7 +17,7 @@ if (!MONGOURL) {
   process.exit(1);
 }
 
-app.get("/api", userRoutes);
+app.use("/api", userRoutes);
 
 // Connect to MongoDB
 mongoose

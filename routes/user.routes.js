@@ -1,10 +1,8 @@
 import express from "express";
+import { getDemo } from "../controllers/user.controller.js";
 
 const router = express.Router();
 
+router.get("/", getDemo);
 
-router.get('/', (req, res) => {
-    res.send('Hello from the demo router!');
-  });
-
-  export default router;
+export default router;
